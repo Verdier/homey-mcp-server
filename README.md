@@ -7,7 +7,7 @@ Control your Homey smart home with AI assistants like Claude.
 ### 1. Install on Homey
 
 ```bash
-git clone https://github.com/lucverdier/homey-mcp-server.git
+git clone https://github.com/Verdier/homey-mcp-server.git
 cd homey-mcp-server
 npm install
 npm run install-homey
