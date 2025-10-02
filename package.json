@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucverdier/homey-mcp-server.git"
+    "url": "git+https://github.com/Verdier/homey-mcp-server.git"
   },
   "engines": {
     "node": ">=16.0.0",
