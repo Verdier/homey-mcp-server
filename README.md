@@ -1,13 +1,13 @@
 # Homey MCP Server
 
-Control your Homey smart home with AI assistants like Claude.
+Homey Pro App exposing an MCP server over HTTP, enabling AI assistants like Claude to control your smart home.
 
 ## 🚀 Quick Setup
 
 ### 1. Install on Homey
 
 ```bash
-git clone https://github.com/Verdier/homey-mcp-server.git
+git clone https://github.com/verdier/homey-mcp-server.git
 cd homey-mcp-server
 npm install
 npm run install-homey
@@ -83,7 +83,7 @@ Ask your AI: _"Turn on the living room lights"_ or _"What's the temperature in t
 
 ### ⚠️ Known Limitations
 
-- **Flow Triggering**: The `trigger_flow` tool is currently not operational due to Homey API scope limitations. The Owner API token does not have the required permissions to trigger flows programmatically. Use the Homey app or web interface to manually trigger flows.
+- **Flow Triggering**: The `trigger_flow` tool is currently not operational due to Homey API cross app limitations.
 
 ## 🧪 Testing
 
