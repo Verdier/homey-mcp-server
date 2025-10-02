@@ -1,0 +1,46 @@
+{
+  "name": "homey-mcp-server",
+  "author": "Luc Verdier",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucverdier/homey-mcp-server.git"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for Homey smart home integration",
+  "main": "app.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "homey app run",
+    "install-homey": "homey app install",
+    "validate": "homey app validate",
+    "clean": "rm -rf build/",
+    "preinstall-homey": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.0",
+    "homey-api": "^3.14.1",
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@tsconfig/node12": "^12.1.4",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
+    "@types/node": "^18.0.0",
+    "@types/source-map-support": "^0.5.10",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "homey",
+    "mcp",
+    "model-context-protocol",
+    "smart-home",
+    "ai-assistant",
+    "home-automation",
+    "iot"
+  ]
+}
