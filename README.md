@@ -98,8 +98,7 @@ curl -X POST \
      "http://YOUR_HOMEY_IP/api/app/com.verdier.mcp-server/mcp"
 ```
 
-## � Support
+## 🤝 Support
 
-- Check the health endpoint first: `http://YOUR_HOMEY_IP/api/app/com.verdier.mcp-server/health`
 - Verify your Homey IP address is correct
 - Ensure Homey Pro is on the same local network
