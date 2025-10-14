@@ -25,6 +25,8 @@ You need a Homey Bearer Token for secure API access:
 
 #### For Claude Desktop
 
+> **Note:** Claude Desktop does not currently support HTTP-based MCP servers directly. We use `mcp-remote` as a bridge to connect to this HTTP server.
+
 Add to your configuration file with your Bearer token:
 
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
@@ -34,11 +36,15 @@ Add to your configuration file with your Bearer token:
 {
   "mcpServers": {
     "homey": {
-      "type": "http",
-      "url": "http://YOUR_HOMEY_IP/api/app/com.verdier.mcp-server/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR_HOMEY_TOKEN"
-      }
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://YOUR_HOMEY_IP/api/app/com.verdier.mcp-server/mcp",
+        "--allow-http",
+        "--header",
+        "Authorization:Bearer YOUR_HOMEY_TOKEN"
+      ]
     }
   }
 }
