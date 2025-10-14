@@ -50,6 +50,11 @@ Add to your configuration file with your Bearer token:
 }
 ```
 
+**Important:** After updating the configuration:
+
+1. Completely quit and reopen Claude Desktop for changes to take effect.
+2. **macOS users:** On first launch, you may be prompted to allow Claude Desktop to find and communicate with devices on your local network. You must allow this permission and then restart Claude for the connection to work.
+
 #### For VS Code
 
 Create `.vscode/mcp.json` in your workspace:
