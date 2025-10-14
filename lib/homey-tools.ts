@@ -68,7 +68,11 @@ class HomeyTools {
 
   private formatErrorMessage(context: string, error: unknown): string {
     return `Failed to ${context}: ${
-      error instanceof Error ? error.message : String(error)
+      typeof error === "object" && "description" in error
+        ? error.description
+        : error instanceof Error
+        ? error.message
+        : String(error)
     }`;
   }
 
@@ -167,8 +171,9 @@ class HomeyTools {
     value: any
   ): Promise<string> {
     try {
-      ValidationHelper.validateDeviceId(deviceId);
-      ValidationHelper.validateCapability(capability);
+      deviceId = ValidationHelper.validateDeviceId(deviceId);
+      capability = ValidationHelper.validateCapability(capability);
+      value = ValidationHelper.validateCapabilityValue(value);
 
       Logger.info(`Controlling device ${deviceId}: ${capability} = ${value}`);
       this.ensureInitialized();

@@ -91,6 +91,48 @@ export class ValidationHelper {
     return capability;
   }
 
+  static validateCapabilityValue(value: any): string | number | boolean {
+    // Handle null/undefined
+    if (value === null || value === undefined) {
+      throw new Error("Capability value cannot be null or undefined");
+    }
+
+    // If already a boolean or number, return as-is
+    if (typeof value === "boolean") return value;
+    if (typeof value === "number") {
+      if (!isFinite(value)) {
+        throw new Error("Capability value cannot be NaN or Infinity");
+      }
+      return value;
+    }
+
+    // Handle string conversions
+    if (typeof value === "string") {
+      // Empty strings are invalid
+      if (value.length === 0) {
+        throw new Error("Capability value cannot be an empty string");
+      }
+
+      // Boolean string literals
+      if (value === "true") return true;
+      if (value === "false") return false;
+
+      // Numeric strings (but not empty/whitespace)
+      const trimmed = value.trim();
+      if (trimmed.length > 0 && !isNaN(Number(trimmed))) {
+        return Number(trimmed);
+      }
+
+      // Valid non-empty string
+      return value;
+    }
+
+    // Invalid type
+    throw new Error(
+      `Invalid capability value type: expected string, number, or boolean, got ${typeof value}`
+    );
+  }
+
   static validateFlowId(flowId: any): string {
     if (typeof flowId !== "string" || flowId.length === 0) {
       throw new Error("Flow ID must be a non-empty string");
